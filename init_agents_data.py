@@ -16,109 +16,79 @@ def init_agent_types():
     
     agent_types_data = [
         {
-            'type_code': 'admission',
-            'name_ru': 'Агент по поступлению',
-            'name_kz': 'Түсу жөніндегі агент',
-            'name_en': 'Admission Agent',
-            'description_ru': 'Помощь с вопросами поступления, требования, документы и процедуры',
-            'description_kz': 'Түсу сұрақтары, талаптар, құжаттар және рәсімдер бойынша көмек',
-            'description_en': 'Help with admission questions, requirements, documents and procedures',
-            'system_prompt_ru': 'Вы - специалист по поступлению в университет "Болашак". Помогайте с вопросами о поступлении, требованиях, документах, сроках подачи заявлений и вступительных экзаменах.',
-            'system_prompt_kz': 'Сіз "Болашақ" университетіне түсу маманысыз. Түсу, талаптар, құжаттар, өтініш беру мерзімдері және кіру емтихандары туралы сұрақтарға көмектесіңіз.',
-            'system_prompt_en': 'You are a Bolashak University admission specialist. Help with questions about admission, requirements, documents, application deadlines and entrance exams.',
+            'type_code': 'ai_abitur',
+            'name_ru': 'AI-Abitur',
+            'name_kz': 'AI-Abitur',
+            'name_en': 'AI-Abitur',
+            'description_ru': 'Цифровой помощник для абитуриентов (поступающих в вуз). Помощь при поступлении, консультации по вопросам приёма.',
+            'description_kz': 'Талапкерлерге арналған цифрлық көмекші. Түсу кезінде көмек көрсету, қабылдау мәселелері бойынша кеңес беру.',
+            'description_en': 'Digital assistant for applicants (university entrants). Assistance with admission, consultations on admission issues.',
+            'system_prompt_ru': 'Вы - цифровой помощник для абитуриентов университета "Болашак". Помогайте с вопросами поступления, консультациями по приёму, требованиями к документам, датами подачи заявлений и вступительными экзаменами.',
+            'system_prompt_kz': 'Сіз "Болашақ" университетінің талапкерлеріне арналған цифрлық көмекшісіз. Түсу сұрақтары, қабылдау бойынша кеңес беру, құжаттарға қойылатын талаптар, өтініш беру мерзімдері және кіру емтихандары бойынша көмек көрсетіңіз.',
+            'system_prompt_en': 'You are a digital assistant for applicants to Bolashak University. Help with admission questions, admission consultations, document requirements, application deadlines and entrance exams.',
             'icon_class': 'fas fa-graduation-cap',
             'color_scheme': 'primary',
             'priority': 1
         },
         {
-            'type_code': 'scholarship',
-            'name_ru': 'Агент по стипендиям',
-            'name_kz': 'Стипендия жөніндегі агент',
-            'name_en': 'Scholarship Agent',
-            'description_ru': 'Информация о стипендиях, грантах и финансовой поддержке',
-            'description_kz': 'Стипендиялар, гранттар және қаржылық қолдау туралы ақпарат',
-            'description_en': 'Information about scholarships, grants and financial support',
-            'system_prompt_ru': 'Вы - консультант по стипендиям и финансовой поддержке в университете "Болашак". Предоставляйте информацию о стипендиях, грантах, материальной помощи и требованиях для их получения.',
-            'system_prompt_kz': 'Сіз "Болашақ" университетіндегі стипендиялар және қаржылық қолдау бойынша кеңесшісіз. Стипендиялар, гранттар, материалдық көмек және оларды алу талаптары туралы ақпарат беріңіз.',
-            'system_prompt_en': 'You are a scholarship and financial support consultant at Bolashak University. Provide information about scholarships, grants, financial aid and requirements for obtaining them.',
-            'icon_class': 'fas fa-award',
-            'color_scheme': 'success',
+            'type_code': 'kadrai',
+            'name_ru': 'KadrAI',
+            'name_kz': 'KadrAI',
+            'name_en': 'KadrAI',
+            'description_ru': 'Интеллектуальный помощник (чат-бот) для поддержки сотрудников и преподавателей в вопросах внутренних кадровых процедур. Консультации по кадровым процессам: отпуска, переводы, приказы и т.д.',
+            'description_kz': 'Қызметкерлер мен оқытушыларды ішкі кадр рәсімдері мәселелерінде қолдауға арналған зияткерлік көмекші (чат-бот). Кадр процестері бойынша кеңес беру: демалыстар, ауыстырулар, бұйрықтар және т.б.',
+            'description_en': 'Intelligent assistant (chatbot) to support employees and teachers in matters of internal HR procedures. Consultations on HR processes: vacations, transfers, orders, etc.',
+            'system_prompt_ru': 'Вы - интеллектуальный помощник по кадровым вопросам университета "Болашак". Консультируйте сотрудников и преподавателей по внутренним кадровым процедурам, отпускам, переводам, приказам, трудовому праву и льготам.',
+            'system_prompt_kz': 'Сіз "Болашақ" университетінің кадр мәселелері бойынша зияткерлік көмекшісіз. Қызметкерлер мен оқытушыларға ішкі кадр рәсімдері, демалыстар, ауыстырулар, бұйрықтар, еңбек құқығы және жеңілдіктер бойынша кеңес беріңіз.',
+            'system_prompt_en': 'You are an intelligent HR assistant at Bolashak University. Consult employees and teachers on internal HR procedures, vacations, transfers, orders, labor law and benefits.',
+            'icon_class': 'fas fa-users-cog',
+            'color_scheme': 'info',
             'priority': 2
         },
         {
-            'type_code': 'academic',
-            'name_ru': 'Академический агент',
-            'name_kz': 'Академиялық агент',
-            'name_en': 'Academic Agent',
-            'description_ru': 'Учебные программы, курсы, расписание и академические вопросы',
-            'description_kz': 'Оқу бағдарламалары, курстар, кесте және академиялық мәселелер',
-            'description_en': 'Study programs, courses, schedules and academic matters',
-            'system_prompt_ru': 'Вы - академический консультант университета "Болашак". Помогайте студентам с вопросами об учебных программах, курсах, расписании, экзаменах и академических требованиях.',
-            'system_prompt_kz': 'Сіз "Болашақ" университетінің академиялық кеңесшісіз. Студенттерге оқу бағдарламалары, курстар, кесте, емтихандар және академиялық талаптар туралы сұрақтарда көмектесіңіз.',
-            'system_prompt_en': 'You are an academic consultant at Bolashak University. Help students with questions about study programs, courses, schedules, exams and academic requirements.',
-            'icon_class': 'fas fa-book-open',
-            'color_scheme': 'info',
+            'type_code': 'uninav',
+            'name_ru': 'UniNav',
+            'name_kz': 'UniNav',
+            'name_en': 'UniNav',
+            'description_ru': 'Интерактивный чат-ассистент, обеспечивающий полное сопровождение обучающегося по всем университетским процессам. Навигация по учебным вопросам, расписание, заявления, обращения и др.',
+            'description_kz': 'Барлық университет процестері бойынша студентке толық сүйемелдеу беретін интерактивті чат-көмекші. Оқу мәселелері бойынша навигация, кесте, өтініштер, өтініштер және т.б.',
+            'description_en': 'Interactive chat assistant providing complete support to students across all university processes. Navigation on academic issues, schedules, applications, appeals, etc.',
+            'system_prompt_ru': 'Вы - интерактивный чат-ассистент для студентов университета "Болашак". Обеспечивайте полное сопровождение по учебным вопросам, расписанию, заявлениям, обращениям и всем университетским процессам.',
+            'system_prompt_kz': 'Сіз "Болашақ" университетінің студенттеріне арналған интерактивті чат-көмекшісіз. Оқу мәселелері, кесте, өтініштер, өтініштер және барлық университет процестері бойынша толық сүйемелдеу беріңіз.',
+            'system_prompt_en': 'You are an interactive chat assistant for Bolashak University students. Provide complete support on academic issues, schedules, applications, appeals and all university processes.',
+            'icon_class': 'fas fa-compass',
+            'color_scheme': 'success',
             'priority': 3
         },
         {
-            'type_code': 'student_life',
-            'name_ru': 'Агент студенческой жизни',
-            'name_kz': 'Студенттік өмір агенті',
-            'name_en': 'Student Life Agent',
-            'description_ru': 'Общежития, клубы, мероприятия и внеучебная деятельность',
-            'description_kz': 'Жатақханалар, клубтар, іс-шаралар және сабақтан тыс қызмет',
-            'description_en': 'Dormitories, clubs, events and extracurricular activities',
-            'system_prompt_ru': 'Вы - координатор студенческой жизни в университете "Болашак". Помогайте студентам с вопросами о проживании в общежитиях, студенческих клубах, мероприятиях и внеучебной деятельности.',
-            'system_prompt_kz': 'Сіз "Болашақ" университетіндегі студенттік өмір үйлестірушісіз. Студенттерге жатақханада тұру, студенттік клубтар, іс-шаралар және сабақтан тыс қызмет туралы сұрақтарда көмектесіңіз.',
-            'system_prompt_en': 'You are a student life coordinator at Bolashak University. Help students with questions about dormitory living, student clubs, events and extracurricular activities.',
-            'icon_class': 'fas fa-users',
+            'type_code': 'career_navigator',
+            'name_ru': 'CareerNavigator',
+            'name_kz': 'CareerNavigator',
+            'name_en': 'CareerNavigator',
+            'description_ru': 'Интеллектуальный чат-бот для содействия трудоустройству студентов и выпускников. Поиск вакансий, консультации по резюме, рекомендации по карьере.',
+            'description_kz': 'Студенттер мен түлектердің жұмысқа орналасуына көмек көрсетуге арналған зияткерлік чат-бот. Бос жұмыс орындарын іздеу, резюме бойынша кеңес беру, мансап бойынша ұсыныстар.',
+            'description_en': 'Intelligent chatbot to assist students and graduates with employment. Job search, resume consultations, career recommendations.',
+            'system_prompt_ru': 'Вы - интеллектуальный чат-бот для содействия трудоустройству студентов и выпускников университета "Болашак". Помогайте с поиском вакансий, составлением резюме, карьерными рекомендациями и стажировками.',
+            'system_prompt_kz': 'Сіз "Болашақ" университетінің студенттері мен түлектерінің жұмысқа орналасуына көмек көрсетуге арналған зияткерлік чат-ботсыз. Бос жұмыс орындарын іздеу, резюме құру, мансап ұсыныстары және тәжірибе орындары бойынша көмектесіңіз.',
+            'system_prompt_en': 'You are an intelligent chatbot to assist students and graduates of Bolashak University with employment. Help with job search, resume writing, career recommendations and internships.',
+            'icon_class': 'fas fa-briefcase',
             'color_scheme': 'warning',
             'priority': 4
         },
         {
-            'type_code': 'general',
-            'name_ru': 'Общий информационный агент',
-            'name_kz': 'Жалпы ақпараттық агент',
-            'name_en': 'General Information Agent',
-            'description_ru': 'Общая информация о университете, контакты и услуги',
-            'description_kz': 'Университет, байланыс және қызметтер туралы жалпы ақпарат',
-            'description_en': 'General information about university, contacts and services',
-            'system_prompt_ru': 'Вы - информационный консультант университета "Болашак". Предоставляйте общую информацию о университете, контактные данные, информацию об услугах и административных процедурах.',
-            'system_prompt_kz': 'Сіз "Болашақ" университетінің ақпараттық кеңесшісіз. Университет туралы жалпы ақпарат, байланыс деректері, қызметтер және әкімшілік рәсімдер туралы ақпарат беріңіз.',
-            'system_prompt_en': 'You are an information consultant at Bolashak University. Provide general information about the university, contact details, services and administrative procedures.',
-            'icon_class': 'fas fa-info-circle',
+            'type_code': 'uniroom',
+            'name_ru': 'UniRoom',
+            'name_kz': 'UniRoom',
+            'name_en': 'UniRoom',
+            'description_ru': 'Цифровой помощник для студентов, проживающих в общежитии. Заселение, переселение, решение бытовых вопросов, обращения в администрацию.',
+            'description_kz': 'Жатақханада тұратын студенттерге арналған цифрлық көмекші. Орналасу, көшіру, тұрмыстық мәселелерді шешу, әкімшілікке өтініштер.',
+            'description_en': 'Digital assistant for students living in dormitories. Settlement, relocation, solving household issues, appeals to administration.',
+            'system_prompt_ru': 'Вы - цифровой помощник для студентов, проживающих в общежитии университета "Болашак". Помогайте с заселением, переселением, решением бытовых вопросов и обращениями в администрацию общежития.',
+            'system_prompt_kz': 'Сіз "Болашақ" университетінің жатақханасында тұратын студенттерге арналған цифрлық көмекшісіз. Орналасу, көшіру, тұрмыстық мәселелерді шешу және жатақхана әкімшілігіне өтініштер жасауда көмектесіңіз.',
+            'system_prompt_en': 'You are a digital assistant for students living in Bolashak University dormitory. Help with settlement, relocation, solving household issues and appeals to dormitory administration.',
+            'icon_class': 'fas fa-home',
             'color_scheme': 'secondary',
             'priority': 5
-        },
-        {
-            'type_code': 'technical',
-            'name_ru': 'Технический агент',
-            'name_kz': 'Техникалық агент',
-            'name_en': 'Technical Agent',
-            'description_ru': 'Техническая поддержка и IT-услуги',
-            'description_kz': 'Техникалық қолдау және IT-қызметтері',
-            'description_en': 'Technical support and IT services',
-            'system_prompt_ru': 'Вы - специалист технической поддержки университета "Болашак". Помогайте с техническими вопросами, IT-услугами, системами университета и решением технических проблем.',
-            'system_prompt_kz': 'Сіз "Болашақ" университетінің техникалық қолдау маманысыз. Техникалық сұрақтар, IT-қызметтер, университет жүйелері және техникалық мәселелерді шешуде көмектесіңіз.',
-            'system_prompt_en': 'You are a technical support specialist at Bolashak University. Help with technical questions, IT services, university systems and solving technical problems.',
-            'icon_class': 'fas fa-cogs',
-            'color_scheme': 'dark',
-            'priority': 6
-        },
-        {
-            'type_code': 'international',
-            'name_ru': 'Агент международных отношений',
-            'name_kz': 'Халықаралық қатынастар агенті',
-            'name_en': 'International Relations Agent',
-            'description_ru': 'Международные программы, обмен и поддержка иностранных студентов',
-            'description_kz': 'Халықаралық бағдарламалар, алмасу және шетелдік студенттерді қолдау',
-            'description_en': 'International programs, exchange and support for foreign students',
-            'system_prompt_ru': 'Вы - координатор международных отношений университета "Болашак". Помогайте с международными программами, студенческим обменом, визовыми вопросами и поддержкой иностранных студентов.',
-            'system_prompt_kz': 'Сіз "Болашақ" университетінің халықаралық қатынастар үйлестірушісіз. Халықаралық бағдарламалар, студенттік алмасу, виза мәселелері және шетелдік студенттерді қолдауда көмектесіңіз.',
-            'system_prompt_en': 'You are an international relations coordinator at Bolashak University. Help with international programs, student exchanges, visa issues and support for foreign students.',
-            'icon_class': 'fas fa-globe',
-            'color_scheme': 'primary',
-            'priority': 7
         }
     ]
     
@@ -150,9 +120,9 @@ def init_knowledge_base():
         db.session.commit()
     
     knowledge_data = [
-        # Admission Agent Knowledge
+        # AI-Abitur Agent Knowledge
         {
-            'agent_type': 'admission',
+            'agent_type': 'ai_abitur',
             'title': 'Требования для поступления',
             'content_ru': 'Для поступления в университет "Болашак" необходимы следующие документы:\n\n• Аттестат о среднем образовании или диплом о среднем специальном образовании\n• Копия удостоверения личности\n• Медицинская справка формы 086-У\n• 6 фотографий 3x4\n• Документы об участии в олимпиадах (при наличии)\n\nВступительные экзамены проводятся по следующим предметам:\n• Казахский или русский язык (язык обучения)\n• Математика\n• История Казахстана\n• Профильный предмет (зависит от специальности)',
             'content_kz': '"Болашақ" университетіне түсу үшін келесі құжаттар қажет:\n\n• Орта білім туралы аттестат немесе орта арнайы білім туралы диплом\n• Жеке басын куәландыратын құжаттың көшірмесі\n• 086-У нысанындағы медициналық анықтама\n• 3x4 өлшемінде 6 фотосурет\n• Олимпиадаларға қатысу туралы құжаттар (болған жағдайда)\n\nКіру емтихандары келесі пәндер бойынша өткізіледі:\n• Қазақ немесе орыс тілі (оқыту тілі)\n• Математика\n• Қазақстан тарихы\n• Бейінді пән (мамандыққа байланысты)',
@@ -164,7 +134,7 @@ def init_knowledge_base():
             'is_featured': True
         },
         {
-            'agent_type': 'admission',
+            'agent_type': 'ai_abitur',
             'title': 'Сроки подачи документов',
             'content_ru': 'Приём документов на обучение осуществляется:\n\n**Основной период:**\n• 15 июня - 25 июля - подача документов\n• 26-31 июля - проведение вступительных экзаменов\n• 1-10 августа - зачисление\n\n**Дополнительный период:**\n• 15-25 августа - подача документов на свободные места\n• 26-28 августа - вступительные экзамены\n• 29-31 августа - зачисление\n\nДокументы подаются в приёмную комиссию с 9:00 до 18:00, обеденный перерыв с 13:00 до 14:00.',
             'content_kz': 'Оқуға құжаттар қабылдау мына мерзімдерде жүзеге асырылады:\n\n**Негізгі кезең:**\n• 15 маусым - 25 шілде - құжаттар беру\n• 26-31 шілде - кіру емтихандарын өткізу\n• 1-10 тамыз - қабылдау\n\n**Қосымша кезең:**\n• 15-25 тамыз - бос орындарға құжаттар беру\n• 26-28 тамыз - кіру емтихандары\n• 29-31 тамыз - қабылдау\n\nҚұжаттар қабылдау комиссиясына 9:00-дан 18:00-ге дейін беріледі, түскі үзіліс 13:00-14:00.',
@@ -176,58 +146,58 @@ def init_knowledge_base():
             'is_featured': True
         },
         
-        # Scholarship Agent Knowledge
+        # KadrAI Agent Knowledge
         {
-            'agent_type': 'scholarship',
-            'title': 'Виды стипендий',
-            'content_ru': 'В университете "Болашак" предусмотрены следующие виды стипендий:\n\n**Государственная академическая стипендия:**\n• Для студентов, обучающихся на "отлично"\n• Размер: 36 373 тенге в месяц\n\n**Государственная социальная стипендия:**\n• Для студентов из малообеспеченных семей\n• Размер: 24 249 тенге в месяц\n\n**Именные стипендии:**\n• Стипендия имени Президента РК - 53 000 тенге\n• Стипендия акима области - 40 000 тенге\n\n**Стипендии от спонсоров:**\n• Размер варьируется от 20 000 до 100 000 тенге\n• Назначаются по результатам конкурса',
-            'content_kz': '"Болашақ" университетінде стипендияның келесі түрлері көзделген:\n\n**Мемлекеттік академиялық стипендия:**\n• "Өте жақсы" оқитын студенттерге\n• Мөлшері: айына 36 373 теңге\n\n**Мемлекеттік әлеуметтік стипендия:**\n• Аз қамтамасыз етілген отбасылардан шыққан студенттерге\n• Мөлшері: айына 24 249 теңге\n\n**Атаулы стипендиялар:**\n• ҚР Президентінің атындағы стипендия - 53 000 теңге\n• Облыс әкімінің стипендиясы - 40 000 теңге\n\n**Демеушілердің стипендиялары:**\n• Мөлшері 20 000-нан 100 000 теңгеге дейін\n• Конкурс нәтижелері бойынша тағайындалады',
-            'content_en': 'The following types of scholarships are provided at Bolashak University:\n\n**State academic scholarship:**\n• For students studying "excellently"\n• Amount: 36,373 tenge per month\n\n**State social scholarship:**\n• For students from low-income families\n• Amount: 24,249 tenge per month\n\n**Named scholarships:**\n• Scholarship named after the President of the Republic of Kazakhstan - 53,000 tenge\n• Regional Akim scholarship - 40,000 tenge\n\n**Sponsor scholarships:**\n• Amount varies from 20,000 to 100,000 tenge\n• Awarded based on competition results',
-            'keywords': 'стипендия, виды, размер, академическая, социальная',
-            'category': 'Финансы',
-            'tags': 'стипендия,финансы,поддержка',
+            'agent_type': 'kadrai',
+            'title': 'Процедура оформления отпуска',
+            'content_ru': 'Для оформления отпуска сотруднику необходимо:\n\n**Основной отпуск:**\n• Подать заявление за 2 недели до планируемой даты\n• Согласовать с непосредственным руководителем\n• Получить подпись в отделе кадров\n\n**Учебный отпуск:**\n• Предоставить справку-вызов из учебного заведения\n• Подать заявление с приложением документов\n• Согласование с руководством\n\n**Отпуск без сохранения зарплаты:**\n• Указать причину в заявлении\n• Получить согласие руководителя\n• Максимальный срок - 1 год за весь период работы',
+            'content_kz': 'Қызметкердің демалысын ресімдеу үшін қажет:\n\n**Негізгі демалыс:**\n• Жоспарланған күнге дейін 2 апта бұрын өтініш беру\n• Тікелей басшымен келісу\n• Кадр бөлімінен қол қойдыру\n\n**Оқу демалысы:**\n• Оқу орнынан шақыру-анықтама беру\n• Құжаттар қоса өтініш беру\n• Басшылықпен келісу\n\n**Жалақысыз демалыс:**\n• Өтінішке себебін көрсету\n• Басшының келісімін алу\n• Ең көп мерзімі - барлық жұмыс кезеңінде 1 жыл',
+            'content_en': 'To process vacation, an employee needs to:\n\n**Main vacation:**\n• Submit application 2 weeks before planned date\n• Coordinate with direct supervisor\n• Get signature from HR department\n\n**Study leave:**\n• Provide reference-summons from educational institution\n• Submit application with attached documents\n• Coordination with management\n\n**Unpaid leave:**\n• Indicate reason in application\n• Get supervisor\'s consent\n• Maximum term - 1 year for entire work period',
+            'keywords': 'отпуск, заявление, кадры, процедура',
+            'category': 'Кадровые процедуры',
+            'tags': 'отпуск,кадры,процедуры',
             'priority': 1,
             'is_featured': True
         },
         
-        # Academic Agent Knowledge  
+        # UniNav Agent Knowledge  
         {
-            'agent_type': 'academic',
-            'title': 'Учебные программы',
-            'content_ru': 'Университет "Болашак" предлагает образовательные программы по следующим направлениям:\n\n**Бакалавриат (4 года):**\n• Информационные технологии\n• Экономика и бизнес\n• Педагогические науки\n• Юриспруденция\n• Медицина\n• Инженерия\n\n**Магистратура (2 года):**\n• MBA программы\n• Специализированные магистерские программы\n\n**Докторантура (3 года):**\n• PhD программы по всем направлениям\n\nОбучение ведется на казахском, русском и английском языках.',
-            'content_kz': '"Болашақ" университеті келесі бағыттар бойынша білім беру бағдарламаларын ұсынады:\n\n**Бакалавриат (4 жыл):**\n• Ақпараттық технологиялар\n• Экономика және бизнес\n• Педагогикалық ғылымдар\n• Заңтану\n• Медицина\n• Инженерия\n\n**Магистратура (2 жыл):**\n• MBA бағдарламалары\n• Мамандандырылған магистерлік бағдарламалар\n\n**Докторантура (3 жыл):**\n• Барлық бағыттар бойынша PhD бағдарламалары\n\nОқыту қазақ, орыс және ағылшын тілдерінде жүргізіледі.',
-            'content_en': 'Bolashak University offers educational programs in the following areas:\n\n**Bachelor\'s degree (4 years):**\n• Information Technology\n• Economics and Business\n• Pedagogical Sciences\n• Law\n• Medicine\n• Engineering\n\n**Master\'s degree (2 years):**\n• MBA programs\n• Specialized master\'s programs\n\n**Doctoral studies (3 years):**\n• PhD programs in all areas\n\nEducation is conducted in Kazakh, Russian and English.',
-            'keywords': 'программы, бакалавриат, магистратура, специальности',
-            'category': 'Обучение',
-            'tags': 'программы,обучение,специальности',
+            'agent_type': 'uninav',
+            'title': 'Учебное расписание и навигация',
+            'content_ru': 'Для получения информации о расписании занятий:\n\n**Онлайн-расписание:**\n• Доступно на сайте университета в разделе "Расписание"\n• Обновляется еженедельно\n• Можно фильтровать по группам и преподавателям\n\n**Мобильное приложение:**\n• Скачайте приложение "Болашак Студент"\n• Персональное расписание по номеру группы\n• Уведомления об изменениях\n\n**Информационные стенды:**\n• На каждом этаже учебных корпусов\n• Обновляются каждый понедельник\n• Содержат актуальные изменения',
+            'content_kz': 'Сабақ кестесі туралы ақпарат алу үшін:\n\n**Онлайн-кесте:**\n• Университет сайтында "Кесте" бөлімінде қолжетімді\n• Апта сайын жаңартылады\n• Топтар мен оқытушылар бойынша сүзуге болады\n\n**Мобильді қосымша:**\n• "Болашақ Студент" қосымшасын жүктеп алыңыз\n• Топ нөмірі бойынша жеке кесте\n• Өзгерістер туралы хабарландырулар\n\n**Ақпараттық стендтер:**\n• Оқу корпустарының әр қабатында\n• Әр дүйсенбі сайын жаңартылады\n• Өзекті өзгерістерді қамтиды',
+            'content_en': 'To get information about class schedule:\n\n**Online schedule:**\n• Available on university website in "Schedule" section\n• Updated weekly\n• Can be filtered by groups and teachers\n\n**Mobile application:**\n• Download "Bolashak Student" app\n• Personal schedule by group number\n• Change notifications\n\n**Information stands:**\n• On each floor of academic buildings\n• Updated every Monday\n• Contain current changes',
+            'keywords': 'расписание, занятия, учёба, навигация',
+            'category': 'Учебный процесс',
+            'tags': 'расписание,учёба,навигация',
             'priority': 1,
             'is_featured': True
         },
         
-        # Student Life Agent Knowledge
+        # CareerNavigator Agent Knowledge
         {
-            'agent_type': 'student_life',
+            'agent_type': 'career_navigator',
+            'title': 'Поиск работы и стажировок',
+            'content_ru': 'Центр карьеры университета "Болашак" предлагает:\n\n**Поиск вакансий:**\n• База данных партнёрских компаний\n• Еженедельные ярмарки вакансий\n• Персональные консультации по трудоустройству\n\n**Помощь с резюме:**\n• Бесплатные мастер-классы по составлению резюме\n• Индивидуальные консультации\n• Шаблоны и примеры успешных резюме\n\n**Стажировки:**\n• Программы стажировок в ведущих компаниях\n• Летние стажировки для студентов 3-4 курсов\n• Возможность трудоустройства после стажировки\n\n**Контакты:**\n• Кабинет 205, учебный корпус №1\n• Телефон: +7 (7242) 123-460\n• Email: career@bolashak.kz',
+            'content_kz': '"Болашақ" университетінің мансап орталығы ұсынады:\n\n**Жұмыс іздеу:**\n• Серіктес компаниялардың дерекқоры\n• Апта сайынғы жұмыс орындарының жәрмеңкелері\n• Жұмысқа орналасу бойынша жеке кеңестер\n\n**Резюмемен көмек:**\n• Резюме құру бойынша тегін шеберлік сыныптары\n• Жеке кеңестер\n• Сәтті резюмелердің үлгілері мен мысалдары\n\n**Тәжірибе орындары:**\n• Жетекші компанияларда тәжірибе бағдарламалары\n• 3-4 курс студенттеріне жазғы тәжірибе\n• Тәжірибеден кейін жұмысқа орналасу мүмкіндігі\n\n**Байланыстар:**\n• 205 кабинет, №1 оқу корпусы\n• Телефон: +7 (7242) 123-460\n• Email: career@bolashak.kz',
+            'content_en': 'Bolashak University Career Center offers:\n\n**Job search:**\n• Partner companies database\n• Weekly job fairs\n• Personal employment consultations\n\n**Resume help:**\n• Free resume writing workshops\n• Individual consultations\n• Templates and examples of successful resumes\n\n**Internships:**\n• Internship programs in leading companies\n• Summer internships for 3rd-4th year students\n• Employment opportunities after internship\n\n**Contacts:**\n• Room 205, academic building №1\n• Phone: +7 (7242) 123-460\n• Email: career@bolashak.kz',
+            'keywords': 'работа, карьера, резюме, стажировка, вакансии',
+            'category': 'Карьера',
+            'tags': 'работа,карьера,резюме',
+            'priority': 1,
+            'is_featured': True
+        },
+        
+        # UniRoom Agent Knowledge
+        {
+            'agent_type': 'uniroom',
             'title': 'Общежитие университета',
-            'content_ru': 'Университет "Болашак" предоставляет студентам современное общежитие:\n\n**Условия проживания:**\n• 2-3 местные комнаты\n• Общие кухни на каждом этаже\n• Wi-Fi интернет\n• Прачечная и гладильная комнаты\n• Охрана 24/7\n\n**Стоимость:**\n• 15 000 тенге в месяц\n• Коммунальные услуги включены\n\n**Правила заселения:**\n• Приоритет для иногородних студентов\n• Подача заявления до 1 августа\n• Необходимы: справка о доходах семьи, медицинская справка\n\n**Адрес:** ул. Студенческая, 15, г. Кызылорда',
-            'content_kz': '"Болашақ" университеті студенттерге заманауи жатақхана ұсынады:\n\n**Тұру жағдайлары:**\n• 2-3 орындық бөлмелер\n• Әр қабатта ортақ ас үйлер\n• Wi-Fi интернет\n• Кір жуу және үтіктеу бөлмелері\n• 24/7 күзет\n\n**Құны:**\n• Айына 15 000 теңге\n• Коммуналдық қызметтер кіреді\n\n**Орналасу ережелері:**\n• Басқа қалалардан келген студенттерге басымдық\n• 1 тамызға дейін өтініш беру\n• Қажет: отбасы табысы туралы анықтама, медициналық анықтама\n\n**Мекенжайы:** Студенттік к-сі, 15, Қызылорда қ.',
-            'content_en': 'Bolashak University provides students with modern dormitory:\n\n**Living conditions:**\n• 2-3 bed rooms\n• Common kitchens on each floor\n• Wi-Fi internet\n• Laundry and ironing rooms\n• 24/7 security\n\n**Cost:**\n• 15,000 tenge per month\n• Utilities included\n\n**Settlement rules:**\n• Priority for non-local students\n• Application submission until August 1\n• Required: family income certificate, medical certificate\n\n**Address:** Studentskaya str., 15, Kyzylorda',
+            'content_ru': 'Университет "Болашак" предоставляет студентам современное общежитие:\n\n**Условия проживания:**\n• 2-3 местные комнаты\n• Общие кухни на каждом этаже\n• Wi-Fi интернет\n• Прачечная и гладильная комнаты\n• Охрана 24/7\n\n**Стоимость:**\n• 15 000 тенге в месяц\n• Коммунальные услуги включены\n\n**Правила заселения:**\n• Приоритет для иногородних студентов\n• Подача заявления до 1 августа\n• Необходимы: справка о доходах семьи, медицинская справка\n\n**Контакты администрации:**\n• Комендант: +7 (7242) 123-459\n• Адрес: ул. Студенческая, 15, г. Кызылорда',
+            'content_kz': '"Болашақ" университеті студенттерге заманауи жатақхана ұсынады:\n\n**Тұру жағдайлары:**\n• 2-3 орындық бөлмелер\n• Әр қабатта ортақ ас үйлер\n• Wi-Fi интернет\n• Кір жуу және үтіктеу бөлмелері\n• 24/7 күзет\n\n**Құны:**\n• Айына 15 000 теңге\n• Коммуналдық қызметтер кіреді\n\n**Орналасу ережелері:**\n• Басқа қалалардан келген студенттерге басымдық\n• 1 тамызға дейін өтініш беру\n• Қажет: отбасы табысы туралы анықтама, медициналық анықтама\n\n**Әкімшілік байланыстары:**\n• Комендант: +7 (7242) 123-459\n• Мекенжайы: Студенттік к-сі, 15, Қызылорда қ.',
+            'content_en': 'Bolashak University provides students with modern dormitory:\n\n**Living conditions:**\n• 2-3 bed rooms\n• Common kitchens on each floor\n• Wi-Fi internet\n• Laundry and ironing rooms\n• 24/7 security\n\n**Cost:**\n• 15,000 tenge per month\n• Utilities included\n\n**Settlement rules:**\n• Priority for non-local students\n• Application submission until August 1\n• Required: family income certificate, medical certificate\n\n**Administration contacts:**\n• Commandant: +7 (7242) 123-459\n• Address: Studentskaya str., 15, Kyzylorda',
             'keywords': 'общежитие, проживание, стоимость, условия',
             'category': 'Проживание',
             'tags': 'общежитие,проживание,жилье',
-            'priority': 1,
-            'is_featured': True
-        },
-        
-        # General Agent Knowledge
-        {
-            'agent_type': 'general',
-            'title': 'Контактная информация',
-            'content_ru': '**Университет "Болашак"**\n\n**Адрес:**\nг. Кызылорда, ул. Университетская, 1\nПочтовый индекс: 120000\n\n**Телефоны:**\n• Приёмная ректора: +7 (7242) 123-456\n• Приёмная комиссия: +7 (7242) 123-457\n• Деканаты: +7 (7242) 123-458\n• Общежитие: +7 (7242) 123-459\n\n**Email:**\n• info@bolashak.kz - общие вопросы\n• admission@bolashak.kz - поступление\n• student@bolashak.kz - для студентов\n\n**Часы работы:**\n• Понедельник-Пятница: 9:00-18:00\n• Суббота: 9:00-13:00\n• Воскресенье: выходной',
-            'content_kz': '**"Болашақ" университеті**\n\n**Мекенжайы:**\nҚызылорда қ., Университетская к-сі, 1\nПошталық индекс: 120000\n\n**Телефондар:**\n• Ректор кеңсесі: +7 (7242) 123-456\n• Қабылдау комиссиясы: +7 (7242) 123-457\n• Деканаттар: +7 (7242) 123-458\n• Жатақхана: +7 (7242) 123-459\n\n**Email:**\n• info@bolashak.kz - жалпы сұрақтар\n• admission@bolashak.kz - түсу\n• student@bolashak.kz - студенттерге\n\n**Жұмыс уақыты:**\n• Дүйсенбі-Жұма: 9:00-18:00\n• Сенбі: 9:00-13:00\n• Жексенбі: демалыс',
-            'content_en': '**Bolashak University**\n\n**Address:**\nKyzylorda, Universitetskaya str., 1\nPostal code: 120000\n\n**Phones:**\n• Rector\'s office: +7 (7242) 123-456\n• Admissions committee: +7 (7242) 123-457\n• Dean\'s offices: +7 (7242) 123-458\n• Dormitory: +7 (7242) 123-459\n\n**Email:**\n• info@bolashak.kz - general questions\n• admission@bolashak.kz - admission\n• student@bolashak.kz - for students\n\n**Working hours:**\n• Monday-Friday: 9:00-18:00\n• Saturday: 9:00-13:00\n• Sunday: day off',
-            'keywords': 'контакты, телефон, адрес, email, часы работы',
-            'category': 'Контакты',
-            'tags': 'контакты,телефон,адрес',
             'priority': 1,
             'is_featured': True
         }
