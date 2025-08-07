@@ -5,8 +5,8 @@ def init_default_data():
     
     try:
         # Import here to avoid circular imports
-        from models import Category, FAQ, AdminUser
-        from app import db, create_app
+        from models import Category, FAQ, AdminUser, db
+        from app import create_app
         
         # Ensure we're within application context
         app = create_app()
@@ -103,7 +103,7 @@ def init_default_data():
     except Exception as e:
         logger.error(f"Error initializing default data: {str(e)}")
         try:
-            from app import db
+            from models import db
             db.session.rollback()
         except:
             pass
