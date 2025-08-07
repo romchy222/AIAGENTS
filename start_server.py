@@ -1,8 +1,5 @@
-Flask app configuration:
-  Debug mode: False
-  Secret key: Set
-  Database URL: Set
-
-Starting server...
- * Serving Flask app 'app'
- * Debug mode: on
+# Start the Flask server
+if __name__ == '__main__':
+    from app import app
+    print("Starting Flask server...")
+    app.run(host='0.0.0.0', port=5000, debug=True)
