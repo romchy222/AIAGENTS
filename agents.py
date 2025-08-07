@@ -145,7 +145,7 @@ class KadrAIAgent(BaseAgent):
         )
 
     def can_handle(self, message: str, language: str = "ru") -> float:
-        keywords = ["кадры", "отпуск", "перевод", "приказ", "сотрудник", "преподаватель", "отдел кадров", "трудовой", "зарплата"]
+        keywords = ["кадры", "отпуск", "перевод", "приказ", "сотрудник", "преподаватель", "отдел кадров", "трудовой", "зарплата", "кадровые"]
         return 1.0 if any(k in message.lower() for k in keywords) else 0.3
 
     def get_system_prompt(self, language: str = "ru") -> str:
@@ -178,7 +178,7 @@ class UniNavAgent(BaseAgent):
         )
 
     def can_handle(self, message: str, language: str = "ru") -> float:
-        keywords = ["расписание", "учёб", "занятие", "заявление", "обращение", "деканат", "академический", "экзамен", "зачёт"]
+        keywords = ["расписание", "учёб", "занятие", "заявление", "обращение", "деканат", "академический", "экзамен", "зачёт", "вопросы"]
         return 1.0 if any(k in message.lower() for k in keywords) else 0.2
 
     def get_system_prompt(self, language: str = "ru") -> str:
