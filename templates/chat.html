@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Bolashak Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body class="theme-light">
+  <!-- ваш HTML код -->
+  <nav class="navbar">
+    <div class="navbar-tags">
+      <span id="sidebar-toggle" class="material-symbols-outlined menu-icon" title="Открыть меню">menu</span>
+      <div class="model-panel">
+        <div class="model-panel-title" id="providerSelector" tabindex="0">
+          BolashakAI <span class="model-panel-arrow">&#9662;</span>
+        </div>
+        <div class="model-panel-dropdown" id="modelDropdown" style="display:none;">
+          <input
+            type="text"
+            class="model-search"
+            id="modelSearch"
+            data-i18n-placeholder="search.models"
+            placeholder="Search models..."
+            autocomplete="off"
+          />
+          <ul class="model-list" id="modelList">
+            <li data-value="ai_assistant" class="selected">
+              <span class="model-icon"><span class="material-symbols-outlined">
+              book_3
+              </span></span>
+              <span>Abitur Bot</span>
+              <span class="model-check">✔</span>
+            </li>
+            <li data-value="ai_navigator">
+              <span class="model-icon"><span class="material-symbols-outlined">
+              person_search
+              </span></span>
+              <span>Kadr AI</span>
+              <span class="model-check">✔</span>
+            </li>
+            <li data-value="student_navigator">
+              <span class="model-icon"><span class="material-symbols-outlined">
+              school
+              </span></span>
+              <span>UniNav</span>
+              <span class="model-check">✔</span>
+            </li>
+            <li data-value="green_navigator">
+              <span class="model-icon"><span class="material-symbols-outlined">
+              enterprise
+              </span></span>
+              <span>Career Navigator</span>
+              <span class="model-check">✔</span>
+            </li>
+            <li data-value="communication">
+              <span class="model-icon"><span class="material-symbols-outlined">
+              apartment
+              </span></span>
+              <span>AI Agent</span>
+              <span class="model-check">✔</span>
+            </li>
+          </ul>
+          <input type="hidden" id="selectedModel" name="selectedModel" value="ai_assistant"/>
+        </div>
+        <input type="hidden" id="selectedModel" name="selectedModel" value="admission"/>
+      </div>
+      <div class="bot-status" id="bot-status">
+        <span class="status-dot online"></span>
+        <span class="status-label" data-i18n="bot.offline">Offline</span>
+      </div>
+    </div> 
+    <div class="lang_theme">
+      <!-- свич языка -->
+   
+      <button class="theme-toggle" title="Переключить тему"><span class="material-symbols-outlined">
+        light_mode
+        </span></button>
+    </div>
+  </nav>
+  <main class="main-content">
+    <div id="sidebar" class="sidebar">
+      <div class="lang-dropdown">
+        <button class="lang-button" id="lang-button">
+          <span data-i18n="lang.russian">Русский</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"/>
+            <path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31"/>
+          </svg>
+        </button>
+        <div class="lang-dropdown-content">
+          <a href="#ru"><img src="https://flagcdn.com/ru.svg" width="30" alt="Russia"><span data-i18n="lang.russian">Русский</span></a>
+          <a href="#kz"><img src="https://flagcdn.com/kz.svg" width="30" alt="Kazakhstan"><span data-i18n="lang.kazakh">Қазақша</span></a>
+          <a href="#en"><img src="https://flagcdn.com/us.svg" width="30" alt="United States"><span data-i18n="lang.english">English</span></a>
+        </div>
+      </div> 
+      <ul class="sidebar-menu">
+        <li><span class="material-symbols-outlined">
+          home
+          </span><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><span class="material-symbols-outlined">
+          bolt
+          </span><a href="/#section_1" data-i18n="nav.about">О нас</a></li>
+        <li><span class="material-symbols-outlined">
+          contact_support
+          </span><a href="/#foot" data-i18n="nav.contacts">Контакты</a></li>
+      </ul>
+    </div>
+    <div class="chat-container">
+       
+    <div class="chat-card">
+       
+      <div id="chat-history" class="chat-history"></div>
+      <div id="suggestions" class="suggestions"></div>
+        <form id="chat-form" autocomplete="off" class="chat-input-panel">
+          <button type="button" id="voice-btn" class="voice-btn" title="Голосовой ввод">
+            <span class="voice-anim"></span>
+            <span class="material-symbols-outlined">
+              mic
+           </span>
+          </button>
+          <button type="button" id="add-btn" class="add-btn" title="Голосовой чат"><span class="material-symbols-outlined">
+             graphic_eq
+            </span>
+          </button>
+          <input type="text" id="chat-input" data-i18n-placeholder="placeholder" placeholder="Введите сообщение..." autocomplete="off" />
+          <button type="submit" class="send-btn" aria-label="Отправить">
+            <span class="material-symbols-outlined">
+              eject
+            </span>
+          </button>
+        </form>
+    </div>
+      </div>
+    </div>
+    <!-- Overlay -->
+    <div id="voice-overlay" class="voice-overlay hidden">
+      <div class="voice-circle">
+        <canvas id="voice-visual" width="180" height="180"></canvas>
+      </div>
+      <div class="voice-controls">
+        <div class="voice-btn-row">
+          <button id="mute-btn" class="voice-btn mute" title="Mute/Unmute">
+            <span class="material-symbols-outlined" id="mute-icon">mic</span>
+          </button>
+          <button id="close-btn" class="voice-btn stop" title="Закрыть">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+          <button id="modal-btn" class="modal-btn" title="Закрыть">
+            <span class="material-symbols-outlined">
+            settings_ethernet
+            </span>
+          </button>
+        </div>
+        <span class="voice-hint" id="voice-hint">Голосовой чат активен</span>
+      </div>
+      <!-- Настройки голоса и агента -->
+      <div class="agent-container">
+        <div class="agent-container-words">
+          <div class="label-containers">
+          Агент<label class="agent-label">
+            <select id="agent-select" class="agent-select"></select>
+          </label>
+        
+            Голос<label class="agent-label">
+            <select id="voice-select"  class="voice-select"></select>
+          </label>        
+            Скорость<label class="agent-label"> 
+            <input id="rate-input" type="range" min="0.5" max="2" step="0.05" value="1">
+            <span id="rate-label">1</span>
+          </label>       
+            Эмоция<label class="agent-label">
+            <select id="emotion-select"  class="agent-select">
+              <option value="neutral">Нейтрально</option>
+              <option value="good">Дружелюбно</option>
+              <option value="evil">Серьёзно</option>
+              <option value="sad">Грустно</option>
+            </select>
+          </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+  <script type="module" src="{{ url_for('static', filename='js/voicechat.js') }}"></script>
+  <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script type="module" src="{{ url_for('static', filename='js/i18n.js') }}"></script>
+  <script type="module" src="{{ url_for('static', filename='js/localization.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@16.1.1/lib/marked.umd.min.js"></script>
+  
+  <script>
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebar = document.getElementById('sidebar');
+
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+
+    // --- Закрытие по клику вне сайдбара ---
+    document.addEventListener('mousedown', (event) => {
+      if (
+        sidebar.classList.contains('active') &&
+        !sidebar.contains(event.target) &&
+        event.target !== sidebarToggle
+      ) {
+        sidebar.classList.remove('active');
+      }
+    });
+  </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BolashakBot - Университет Болашак{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <!-- Бургер-кнопка для мобильных -->
+    <button class="mobile-burger" id="mobileBurgerBtn" aria-label="Открыть меню">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+    <!-- Мобильное меню -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-ul-container">
+        <ul>
+            <div class="mobile-nav-decor">
+                <li>
+                    <a href="{{ url_for('views.index_new') }}">
+                        <span class="material-symbols-outlined">home</span> Главная
+                    </a>
+                </li>
+            </div>
+            <div class="mobile-nav-decor">
+                <li>
+                    <a href="{{ url_for('admin.dashboard') }}">
+                        <span class="material-symbols-outlined">manage_accounts</span> Администратор
+                    </a>
+                </li>
+            </div>
+            <div class="mobile-nav-decor">
+                <li>
+                    <a href="{{ url_for('views.chat_new') }}">
+                        <span class="material-symbols-outlined">automation</span> BolashAI
+                    </a>
+                </li>
+                
+            </div>
+            
+        </ul>
+    <div class="navbar-switch-container">    
+        <button class="theme-toggle navbar-switch" type="button" id="themeToggle">
+            <span class="material-symbols-outlined">light_mode</span>
+        </button>
+
+        <div class="switch-decor-mobile">
+            <button class="navbar-switch" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            
+        </div>
+    </div>
+    </div>
+            
+    </nav>
+
+    <nav class="nav-bar">
+        <div class="container-bar">
+            <div class="bolash-menu">
+                <div class="bolash-decor">
+                    <a class="univercity-brand-name" href="{{ url_for('views.index_new') }}">
+                        <i class="fas fa-graduation-cap me-2"></i>
+                        Университет Болашак
+                    </a>
+                </div>
+                <!-- menu -->
+                <div class="menu-panel">
+                    <div class="menu-item">
+                        <span class="material-symbols-outlined">
+                            home
+                        </span><a class="univercity-brand" href="{{ url_for('views.index_new') }}">
+                                Главная
+                            </a>
+                    </div>
+                    <!-- <div class="menu-item">
+                        <span class="material-symbols-outlined">
+                            manage_accounts
+                        </span><a class="univercity-brand" href="{{ url_for('views.index_new') }}">
+                                Администратор
+                            </a>
+                    </div> -->
+                    <div class="menu-item">
+                        <span class="material-symbols-outlined">
+                            automation
+                        </span><a class="univercity-brand" href="{{ url_for('views.chat_new') }}">
+                            BolashakAI
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-switch-container">
+                <div class="switch-decor">
+                    <button class="navbar-switch theme-toggle" type="button">
+                      <span class="material-symbols-outlined">light_mode</span>
+                    </button>
+                </div>
+                <!-- <button class="navbar-settings" id="closebut">
+                    <span class="material-symbols-outlined">
+                    settings
+                    </span>
+                </button> -->
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="container mt-3">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="footer" >
+        <div class="container">
+            <div class="fot-text-container">
+            <p class="footer-text">
+                &copy; 2025 Университет Болашак. Все права защищены.
+            </p>
+            <p class="footer-text" id="foot">
+                <span class="material-symbols-outlined">
+                handshake
+                </span>Идем только вперёд!
+            </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const burger = document.getElementById('mobileBurgerBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      const closeBtn = document.querySelector('.switch-decor-mobile');
+      const themeToggles = document.querySelectorAll('.theme-toggle');
+
+      burger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        mobileNav.style.display = 'flex';
+        mobileNav.style.flexDirection = 'column';
+      });
+
+      closeBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        mobileNav.style.display = 'none';
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!mobileNav.contains(e.target) && !burger.contains(e.target) && !closeBtn.contains(e.target)) {
+          mobileNav.style.display = 'none';
+        }
+      });
+
+      // Переключение темы
+      themeToggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.body.classList.toggle('theme-dark');
+
+          const icon = document.body.classList.contains('theme-dark')
+            ? 'brightness_4'
+            : 'light_mode';
+
+          themeToggles.forEach(b => {
+            b.innerHTML = `<span class="material-symbols-outlined">${icon}</span>`;
+          });
+        });
+      });
+    });
+    </script>
+    
+
+
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>
