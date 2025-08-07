@@ -35,7 +35,7 @@ def delete_document(doc_id):
     """Delete a document by id"""
     try:
         from models import Document
-        from app import db
+        from models import db
         document = Document.query.get(doc_id)
         if document:
             document.is_active = False
@@ -54,7 +54,7 @@ def upload_document():
     """Upload a new document"""
     try:
         from models import Document
-        from app import db
+        from models import db
         file = request.files.get('file')
         logger.info("[UPLOAD] Получен запрос на загрузку документа")
         if not file or file.filename == '':
@@ -140,8 +140,7 @@ def dashboard():
     """Admin dashboard with statistics"""
     try:
         # Импорт моделей и базы данных (отложенный импорт для избежания циклов)
-        from models import UserQuery, FAQ, Category, Document, WebSource, KnowledgeBase
-        from app import db
+        from models import UserQuery, FAQ, Category, Document, WebSource, KnowledgeBase, db
 
         # Получение статистики
         total_queries = UserQuery.query.count()
@@ -206,7 +205,7 @@ def categories():
     """Manage categories"""
     try:
         from models import Category
-        from app import db
+        from models import db
 
         page = request.args.get('page', 1, type=int)
         categories_list = Category.query.paginate(
@@ -224,7 +223,7 @@ def add_category():
     """Add new category"""
     try:
         from models import Category
-        from app import db
+        from models import db
 
         name_ru = request.form.get('name_ru', '').strip()
         name_kz = request.form.get('name_kz', '').strip()
@@ -287,7 +286,7 @@ def add_faq():
     """Add new FAQ"""
     try:
         from models import FAQ
-        from app import db
+        from models import db
 
         question_ru = request.form.get('question_ru', '').strip()
         question_kz = request.form.get('question_kz', '').strip()
@@ -347,10 +346,9 @@ def queries():
 def login():
     """Admin login"""
     if request.method == 'POST':
-        from models import AdminUser
-        from app import db
-
-        username = request.form.get('username', 'a').strip()
+        from models import AdminUser, db
+        
+        username = request.form.get('username', '').strip()
         password = request.form.get('password', '')
 
         if username and password:
@@ -411,7 +409,7 @@ def add_web_source():
     """Add new web source"""
     try:
         from models import WebSource
-        from app import db
+        from models import db
         title = request.form.get('title', '').strip()
         url = request.form.get('url', '').strip()
         if not title or not url:
@@ -485,7 +483,7 @@ def agent_analytics():
     """Get agent usage analytics"""
     try:
         from models import UserQuery
-        from app import db
+        from models import db
 
         # Get agent usage statistics
         agent_stats = db.session.query(
@@ -568,7 +566,7 @@ def analytics_summary():
     """Get summary analytics for dashboard"""
     try:
         from models import UserQuery
-        from app import db
+        from models import db
 
         # Get agent usage data
         agent_usage = db.session.query(
@@ -707,7 +705,7 @@ def agent_knowledge():
     """Manage agent knowledge bases"""
     try:
         from models import AgentKnowledgeBase, AgentType
-        from app import db
+        from models import db
 
         # Получение параметров фильтрации
         agent_type = request.args.get('agent_type')
@@ -766,7 +764,7 @@ def add_knowledge():
     """Add new knowledge entry via API"""
     try:
         from models import AgentKnowledgeBase
-        from app import db
+        from models import db
 
         data = request.get_json()
         
@@ -808,7 +806,7 @@ def toggle_featured(knowledge_id):
     """Toggle featured status of knowledge entry"""
     try:
         from models import AgentKnowledgeBase
-        from app import db
+        from models import db
 
         knowledge = AgentKnowledgeBase.query.get_or_404(knowledge_id)
         knowledge.is_featured = not knowledge.is_featured
@@ -829,7 +827,7 @@ def toggle_active(knowledge_id):
     """Toggle active status of knowledge entry"""
     try:
         from models import AgentKnowledgeBase
-        from app import db
+        from models import db
 
         knowledge = AgentKnowledgeBase.query.get_or_404(knowledge_id)
         knowledge.is_active = not knowledge.is_active
@@ -850,7 +848,7 @@ def delete_knowledge(knowledge_id):
     """Delete knowledge entry"""
     try:
         from models import AgentKnowledgeBase
-        from app import db
+        from models import db
 
         knowledge = AgentKnowledgeBase.query.get_or_404(knowledge_id)
         db.session.delete(knowledge)
@@ -899,7 +897,7 @@ def update_knowledge(knowledge_id):
     """Update knowledge entry"""
     try:
         from models import AgentKnowledgeBase
-        from app import db
+        from models import db
 
         knowledge = AgentKnowledgeBase.query.get_or_404(knowledge_id)
         data = request.get_json()

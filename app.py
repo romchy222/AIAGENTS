@@ -2,10 +2,16 @@
 import os
 import logging
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from sqlalchemy.orm import DeclarativeBase
 from werkzeug.middleware.proxy_fix import ProxyFix
+
+# Load environment variables from .env file
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 # Настройка логирования
 logging.basicConfig(level=logging.DEBUG)
@@ -16,8 +22,8 @@ class Base(DeclarativeBase):
     pass
 
 
-# Инициализация объекта базы данных
-db = SQLAlchemy(model_class=Base)
+# Import db from models to avoid circular imports
+from models import db
 
 
 def create_app():
@@ -85,7 +91,7 @@ def create_app():
 
     # Инициализация в контексте приложения
     with app.app_context():
-        # Импорт моделей для регистрации в SQLAlchemy
+        # Импорт моделей для регистрации в SQLAlchemy и инициализация db
         import models
 
         # Создание всех таблиц в базе данных

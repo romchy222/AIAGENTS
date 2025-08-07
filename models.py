@@ -1,7 +1,10 @@
 # Импорт необходимых модулей
 from datetime import datetime
-from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_sqlalchemy import SQLAlchemy
+
+# Initialize db object that will be imported by app.py
+db = SQLAlchemy()
 
 class Category(db.Model):
     """Модель категории для FAQ"""
